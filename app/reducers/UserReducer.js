@@ -3,7 +3,6 @@ import * as types from '../actions/types'
 const initialState = []
 
 export const saveUserData = (state = initialState, action) => {
-  console.log('reducer - saveInputForm')
   switch (action.type) {
     case types.ADD_USER:
       return [

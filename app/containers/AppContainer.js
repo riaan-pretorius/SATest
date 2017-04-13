@@ -7,6 +7,7 @@ import { Field, reduxForm } from 'redux-form'
 import { FieldWithLabel } from '../components/FieldWithLabel'
 import {styles} from '../styles'
 import { saveUserData } from '../actions/UserForm'
+import * as global from '../global'
 
 const {
 	View,
@@ -22,14 +23,22 @@ const submit = (values, dispatch) => {
 }
 
 class AppContainer extends Component {
+	constructor(props) {
+		super(props)
+	}
+
+
+
 	render () {
 		const { handleSubmit } = this.props;
 		return (
 			<View style={styles.container}>
-				<Field label="Firstname" name="firstName" component={FieldWithLabel} />
-				<Field label="Lastname" name="lastName" component={FieldWithLabel} />
-				<Field label="Email" name="email" component={FieldWithLabel} />
-
+				<Field label="FirstName" name="firstName" nextField="2" refName="1"
+					component={FieldWithLabel} />
+				<Field label="LastName" name="lastName" nextField="3" refName="2"
+					component={FieldWithLabel} />
+				<Field label="Email" name="email" nextField="" refName="3"
+					component={FieldWithLabel} />
 				<TouchableOpacity onPress={handleSubmit(submit)}>
 					<Text style={styles.button} >Submit</Text>
 				</TouchableOpacity>
