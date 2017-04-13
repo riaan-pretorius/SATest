@@ -8,15 +8,23 @@ const {
 	TextInput
 } = ReactNative
 
-export class FieldWithLabel extends Component {
-	render() {
-		console.log(this.props)
-		return <View>
-			<Text style={styles.label}>{this.props.label}</Text>
+export const FieldWithLabel = (props) => {
+	return (
+		<View>
+			<Text style={styles.label}>{props.label}</Text>
 			<TextInput
-				style={styles.input}
-        name={this.props.fieldName}
-			/>
+				name="fullName" style={styles.input}
+				onChangeText={props.input.onChange} />
 		</View>
-	}
+	)
 }
+
+// export const FieldWithLabel = ({ input: { onChange, ...restInput }}) => {
+// 	console.log(this.props)
+// 	return <View>
+// 		<Text style={styles.label}>{this.props.label}</Text>
+// 		<TextInput
+// 			style={styles.input}
+// 			onChangeText={onChange} {...restInput} />
+// 	</View>
+// }

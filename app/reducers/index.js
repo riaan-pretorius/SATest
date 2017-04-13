@@ -1,10 +1,10 @@
-import { createStore, combineReducers } from 'redux';
+import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form'
 import * as recipesReducer from './recipes'
-import { UserReducer } from './UserReducer'
+import { saveUserData } from './userReducer'
 
 export default combineReducers({
-	recipesReducer,
-	users: UserReducer,
-	form: formReducer,
-});
+  recipesReducer,
+  users: saveUserData,
+  form: formReducer,
+})

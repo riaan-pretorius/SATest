@@ -3,7 +3,7 @@ import ReactNative from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { ActionCreators } from '../actions'
-import { reduxForm } from 'redux-form'
+import { Field, reduxForm } from 'redux-form'
 import { FieldWithLabel } from '../components/FieldWithLabel'
 import {styles} from '../styles'
 import { saveUserData } from '../actions/UserForm'
@@ -12,10 +12,9 @@ const {
 	View,
 	Text,
 	TextInput,
-	Field,
 	StyleSheet,
 	TouchableOpacity,
-} = ReactNative;
+} = ReactNative
 
 const submit = (values, dispatch) => {
 	console.log('<<<SUBMIT FORM>>>', values)
@@ -27,12 +26,10 @@ class AppContainer extends Component {
 		const { handleSubmit } = this.props;
 		return (
 			<View style={styles.container}>
-				<FieldWithLabel label="Full Name" fieldName="fullName" />
-				<FieldWithLabel label="Email" fieldName="email" />
-				<FieldWithLabel label="Password" fieldName="password" />
-				<FieldWithLabel label="Confirm Password" fieldName="confirmPassword" />
-				<FieldWithLabel label="State" fieldName="state" />
-				<FieldWithLabel label="Zip" fieldName="zip" />
+				<Field label="Firstname" name="firstName" component={FieldWithLabel} />
+				<Field label="Lastname" name="lastName" component={FieldWithLabel} />
+				<Field label="Email" name="email" component={FieldWithLabel} />
+
 				<TouchableOpacity onPress={handleSubmit(submit)}>
 					<Text style={styles.button} >Submit</Text>
 				</TouchableOpacity>
